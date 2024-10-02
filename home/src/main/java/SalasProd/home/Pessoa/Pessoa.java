@@ -7,10 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@EqualsAndHashCode(of = "id")
+
+@Entity(name="Pessoa")
 public class Pessoa {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,7 +26,50 @@ public class Pessoa {
         this.tipo=person.tipo();
     }
 
+    public Pessoa() {
+    }
+    public void atualizar(PessoaDto usuarioAtualizado) {
+        if (usuarioAtualizado.email() != null) {
+            this.email = usuarioAtualizado.email();
+        }
+        if (usuarioAtualizado.nome() != null) {
+            this.nome = usuarioAtualizado.nome();
+        }
+        if (usuarioAtualizado.tipo() != null) {
+            this.tipo = usuarioAtualizado.tipo();
+        }
+    }
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public Classificacao getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Classificacao tipo) {
+        this.tipo = tipo;
+    }
 }
 

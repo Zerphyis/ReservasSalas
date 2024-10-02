@@ -5,6 +5,6 @@ import SalasProd.home.Pessoa.Pessoa;
 
 public record PessoaDto(String nome, String email, Classificacao tipo) {
     public PessoaDto(Pessoa pessoa){
-        this(pessoa.nome,pessoa.email,pessoa.tipo);
+        this(pessoa.getNome(),pessoa.getEmail(),pessoa.getTipo());
     }
 }
